@@ -3,14 +3,10 @@ import { TestBed } from '@angular/core/testing';
 import { SearchService } from './search.service';
 
 describe('SearchService', () => {
-  let service: SearchService;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(SearchService);
-  });
+  beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
+    const service: SearchService = TestBed.get(SearchService);
     expect(service).toBeTruthy();
   });
 });
