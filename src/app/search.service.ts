@@ -19,8 +19,7 @@ export class SearchService {
   public searchEntries(term): Observable<any>{
     if (term === "" ){
       console.log("Not defined");
-      return of(null);
-      //return empty();
+      return of(null); //return empty();
     }else{
       let params = {q: term }
       return this.httpClient.get(this.baseUrl, {params}).pipe(
