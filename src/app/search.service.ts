@@ -12,10 +12,8 @@ export class SearchService {
   public baseUrl = "https://api.github.com/search/repositories";
   public searchResults: any;
 
-  constructor(private httpClient: HttpClient) { }
-
-
-  //makes the HTTP request to get the resources and returns the response as observable;  
+  constructor(private httpClient: HttpClient) { } 
+  
   public searchEntries(term): Observable<any>{
     if (term === "" ){
       console.log("Not defined");
