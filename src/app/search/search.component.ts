@@ -15,7 +15,8 @@ export class SearchComponent implements OnInit {
 
   public loading: boolean;
   public searchTerm = new Subject<string>();
-  public baseUrl = "https://api.github.com/search/repositories"; 
+  //public baseUrl = "https://api.github.com/search/repositories"; 
+  public baseUrl = "https://localhost:5001";
   public searchResults: any;
   public paginationElements: any;
   public errorMessage: any;
@@ -24,7 +25,19 @@ export class SearchComponent implements OnInit {
   public searchForm = new FormGroup({
     search: new FormControl('', Validators.required),
   });
-
+/**
+ * <div>
+                <img loading="lazy" [attr.src]="result.owner.avatar_url"
+                    width="200"
+                    height="auto"
+                    alt="avatar"
+                />
+                <h2><a href="{{result.clone_url}}" target="_blank">{{result.full_name}}</a></h2>
+                <p><strong>{{result.owner.login}}</strong></p>
+                <p><em>Forks</em>: {{result.forks_count}}</p>
+                <p><em>Issues</em>: {{result.open_issues_count}}</p>
+            </div>  
+ */
   public search(){
     this.searchTerm.pipe(
       map((e: any) => {

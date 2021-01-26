@@ -13,20 +13,18 @@
 
     <div *ngIf="searchResults">
       <div class="results" >
-        <div class="repo" *ngFor="let result of paginationElements | paginate: { itemsPerPage: 25, currentPage: page }">
-            <div>
-                <img loading="lazy" [attr.src]="result.owner.avatar_url"
-                    width="200"
-                    height="auto"
-                    alt="avatar"
-                />
-                <h2><a href="{{result.clone_url}}" target="_blank">{{result.full_name}}</a></h2>
-                <p><strong>{{result.owner.login}}</strong></p>
-                <p><em>Forks</em>: {{result.forks_count}}</p>
-                <p><em>Issues</em>: {{result.open_issues_count}}</p>
-            </div>  
-        </div>
-    </div>
+          <table>
+            <tr><th>Date</th><th>Pet Name</th><th>Animal</th><th>Owner</th><th>Contact</th></tr>
+            <tr *ngFor="let result of paginationElements | paginate: { itemsPerPage: 25, currentPage: page }">
+                <td>{{result.date}}</td>
+                <td>{{result.pet.name}}</td>
+                <td>{{result.pet.animal.name}}</td>
+                <td>{{result.pet.owner}}</td> 
+                <td>{{result.pet.contact}}</td>
+           </tr>
+          </table>
+        
+      </div>
         <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
    
